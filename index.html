@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Friendship Day — For My Best Friend</title>
+<meta name="description" content="A premium, animated Friendship Day celebration page — memories, wishes, and a secret gift for a best friend.">
+<meta name="theme-color" content="#150F2E">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Happy Friendship Day ❤️">
+<meta property="og:description" content="Some friendships are not measured by time, but by memories, trust, and endless laughter.">
+<meta property="og:type" content="website">
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-heart">
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <p class="loader-text">gathering the memories<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></p>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ============ AMBIENT LAYERS (particles / stars / cursor fx) ============ -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+<div id="cursor-heart" aria-hidden="true"><i class="fa-solid fa-heart"></i></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div id="scroll-progress" aria-hidden="true"><div id="scroll-progress-bar"></div></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar glass" id="navbar">
+  <a href="#hero" class="nav-brand">
+    <i class="fa-solid fa-heart-pulse"></i>
+    <span>Afrin Taj &amp; You</span>
+  </a>
+
+  <nav class="nav-links" id="nav-links" aria-label="Primary">
+    <a href="#dear-friend">Letter</a>
+    <a href="#timeline">Memories</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#amazing">Why You</a>
+    <a href="#quotes">Quotes</a>
+    <a href="#wish">Wishes</a>
+    <a href="#gift">Gift</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button id="theme-toggle" class="icon-btn" aria-label="Toggle day and night mode" title="Toggle theme">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+    <button id="music-toggle" class="icon-btn" aria-label="Play background music" title="Play music">
+      <i class="fa-solid fa-play"></i>
+      <span class="equalizer" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+    </button>
+    <button id="nav-burger" class="icon-btn nav-burger" aria-label="Open menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<audio id="bg-music" loop preload="none">
+  <source src="friendship.mp3" type="audio/mpeg">
+</audio>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="aurora aurora-1"></div>
+      <div class="aurora aurora-2"></div>
+      <div class="aurora aurora-3"></div>
+    </div>
+
+    <div id="hero-hearts" class="hero-hearts" aria-hidden="true"></div>
+
+    <div class="hero-content reveal-up">
+      <p class="eyebrow"><i class="fa-solid fa-sparkles"></i> A little something for you</p>
+      <h1 class="hero-title">
+        Happy <span class="grad-text">Friendship</span> Day
+        <i class="fa-solid fa-heart hero-heart-icon"></i>
+      </h1>
+      <p class="hero-subtitle">
+        <span id="typing-text"></span><span class="typing-cursor" aria-hidden="true">|</span>
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary glow" id="celebrate-btn">
+          <i class="fa-solid fa-champagne-glasses"></i> Celebrate Friendship
+        </button>
+        <a href="#timeline" class="btn btn-glass">
+          <i class="fa-solid fa-images"></i> View Memories
+        </a>
+      </div>
+    </div>
+
+    <a href="#dear-friend" class="scroll-indicator" aria-label="Scroll down">
+      <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+      <span class="scroll-label">scroll</span>
+    </a>
+
+    <svg class="divider" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"></path>
+    </svg>
+  </section>
+
+  <!-- ============ DEAR FRIEND ============ -->
+  <section id="dear-friend" class="section dear-friend">
+    <div class="container">
+      <p class="section-eyebrow reveal">a letter, just for you</p>
+      <h2 class="section-title script reveal">Dear <span class="grad-text" data-editable="friend-name">Friend</span>,</h2>
+
+      <div class="letter glass reveal-up">
+        <p>I don't say this often enough, so let me say it properly today: thank you for being exactly who you are. Somewhere between the inside jokes nobody else understands and the late-night calls about absolutely nothing, you became one of the steadiest, warmest parts of my life.</p>
+
+        <p>Thank you for the laughter that still makes my stomach hurt when I think about it later. Thank you for showing up — not just on the good days, but on the ones I didn't have the words to ask for help. Thank you for trusting me with the real you, and for never once making me feel like I had to be anyone other than myself around you.</p>
+
+        <p>You've taught me things no book ever could: how to forgive faster, how to celebrate someone else's wins like they're my own, how to sit in silence with a person and still feel completely understood. Every memory we've made, even the small, forgettable ones, has quietly built the friendship I now can't imagine my life without.</p>
+
+        <p>Here's to every memory still waiting to happen — the trips we haven't taken yet, the milestones we'll cheer each other through, the ordinary Tuesdays that somehow always turn into the best stories. Whatever life throws at us next, I hope we face it exactly the way we always have: together, and laughing.</p>
+
+        <p class="letter-signoff">Forever your friend,<br><span class="script grad-text">Afrin Taj</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMORY TIMELINE ============ -->
+  <section id="timeline" class="section timeline-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">how we got here</p>
+      <h2 class="section-title reveal">Our <span class="grad-text">Memory</span> Timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-icon">🌟</div>
+          <div class="timeline-card glass">
+            <h3>First Meeting</h3>
+            <p>The day two strangers turned into "us." Neither of us knew it then, but that ordinary hello was the start of something that would outlast almost everything else.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-icon">😂</div>
+          <div class="timeline-card glass">
+            <h3>Funniest Memory</h3>
+            <p>The story we've retold a hundred times and somehow still can't get through without laughing until we can't breathe. You know exactly the one.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-icon">📸</div>
+          <div class="timeline-card glass">
+            <h3>Best Moments</h3>
+            <p>A thousand small, golden moments — the ones that don't make headlines but quietly became the highlight reel of our friendship.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-icon">🎉</div>
+          <div class="timeline-card glass">
+            <h3>Adventures Together</h3>
+            <p>Every trip, every spontaneous plan, every "let's just go" — proof that the best stories always seem to have your name written next to mine.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-icon">❤️</div>
+          <div class="timeline-card glass">
+            <h3>Forever Friends</h3>
+            <p>Not a memory yet — this one's still being written, one year at a time, for as long as we both keep showing up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO GALLERY ============ -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">a picture says it all</p>
+      <h2 class="section-title reveal">Photo <span class="grad-text">Gallery</span></h2>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <button class="gallery-item reveal-up" data-index="0" data-full="images/photo1.jpg" style="--d:0s">
+          <img src="images/photo1.jpg" alt="A cherished memory together, photo one" loading="lazy">
+          <span class="gallery-overlay"><i class="fa-solid fa-expand"></i></span>
+        </button>
+
+        <button class="gallery-item reveal-up" data-index="1" data-full="images/photo2.jpg" style="--d:.08s">
+          <img src="images/photo2.jpg" alt="A cherished memory together, photo two" loading="lazy">
+          <span class="gallery-overlay"><i class="fa-solid fa-expand"></i></span>
+        </button>
+
+        <button class="gallery-item reveal-up" data-index="2" data-full="images/IMG-20251210-WA0010.jpg" style="--d:.16s">
+          <img src="images/IMG-20251210-WA0010.jpg" alt="Our memory" loading="lazy">
+          <span class="gallery-overlay"><i class="fa-solid fa-expand"></i></span>
+        </button>
+        <button class="gallery-item reveal-up" data-index="3" data-full="images/photo4.jpg" style="--d:.24s">
+          <img src="images/photo4.jpg" alt="Our memory photo 4" loading="lazy">
+          <span class="gallery-overlay">
+          <i class="fa-solid fa-expand"></i>
+         </span>
+        </button>
+        <div class="gallery-item gallery-placeholder reveal-up" style="--d:.32s">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Add a memory</span>
+        </div>
+        <div class="gallery-item gallery-placeholder reveal-up" style="--d:.4s">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span>Add a memory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============ MEMORY VIDEOS ============ -->
+<section id="video" class="section">
+  <div class="container">
+    <p class="section-eyebrow">Our Special Memories</p>
+    <h2 class="section-title">
+      Beautiful <span class="grad-text">Memory Videos</span>
+    </h2>
+
+    <div class="video-grid">
+
+      <!-- Video 1 -->
+      <video controls autoplay muted loop
+             style="width:100%; max-width:900px; border-radius:20px; margin-bottom:30px;">
+        <source src="videos/friendship.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Video 2 -->
+      <video controls autoplay muted loop
+             style="width:100%; max-width:900px; border-radius:20px;">
+        <source src="videos/friendship2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close photo viewer"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lightbox-img" src="" alt="Enlarged memory photo">
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- ============ WHY YOU'RE AMAZING ============ -->
+  <section id="amazing" class="section amazing-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">the real reasons</p>
+      <h2 class="section-title reveal">Why You're <span class="grad-text">Amazing</span></h2>
+
+      <div class="cards-grid">
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Loyal</h3>
+          <p>Through every version of me, you never once left. That's rarer than people admit.</p>
+        </div>
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3>Caring</h3>
+          <p>You notice the things I don't say out loud, and you show up for them anyway.</p>
+        </div>
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-face-laugh-squint"></i></div>
+          <h3>Funny</h3>
+          <p>You could make a bad day sound like a comedy special. I don't know how you do it.</p>
+        </div>
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-people-arrows"></i></div>
+          <h3>Supportive</h3>
+          <p>My wins feel bigger and my losses feel smaller because you're standing next to me.</p>
+        </div>
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-comment-dots"></i></div>
+          <h3>Honest</h3>
+          <p>You tell me the truth even when it's easier not to. I trust you more because of it.</p>
+        </div>
+        <div class="amazing-card glass reveal-up">
+          <div class="amazing-icon"><i class="fa-solid fa-star"></i></div>
+          <h3>Inspiring</h3>
+          <p>Watching you chase what you want quietly pushes me to chase mine too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUOTES ============ -->
+  <section id="quotes" class="section quotes-section">
+    <div class="aurora aurora-4" aria-hidden="true"></div>
+    <div class="container">
+      <p class="section-eyebrow reveal">words worth remembering</p>
+      <h2 class="section-title reveal">Friendship <span class="grad-text">Quotes</span></h2>
+
+      <div class="quote-box glass reveal-up">
+        <i class="fa-solid fa-quote-left quote-mark"></i>
+        <p id="quote-text" class="quote-text script"></p>
+        <div class="quote-dots" id="quote-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS: YEARS + METER ============ -->
+  <section class="section stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card glass reveal-up">
+        <div class="counter" id="years-counter" data-target="2">0</div>
+        <p>Years of Friendship</p>
+      </div>
+
+      <div class="stat-card glass reveal-up">
+        <div class="meter-wrap">
+          <svg class="meter-svg" viewBox="0 0 160 160" aria-hidden="true">
+            <circle class="meter-track" cx="80" cy="80" r="68"></circle>
+            <circle class="meter-fill" id="meter-fill" cx="80" cy="80" r="68"></circle>
+          </svg>
+          <div class="meter-label" id="meter-label">0%</div>
+        </div>
+        <p>Best Friends Forever</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WISH GENERATOR ============ -->
+  <section id="wish" class="section wish-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">one more, for good luck</p>
+      <h2 class="section-title reveal">Friendship <span class="grad-text">Wish</span> Generator</h2>
+
+      <div class="wish-box glass reveal-up">
+        <i class="fa-solid fa-wand-magic-sparkles wish-icon" aria-hidden="true"></i>
+        <p id="wish-text" class="wish-text">Tap the button for a wish made just for you.</p>
+        <button class="btn btn-primary glow" id="wish-btn">
+          <i class="fa-solid fa-arrows-rotate"></i> Generate New Friendship Wish
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECRET GIFT ============ -->
+  <section id="gift" class="section gift-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">last one, i promise</p>
+      <h2 class="section-title reveal">A Secret, Just For <span class="grad-text">You</span></h2>
+      <p class="gift-hint reveal">go on, tap the box</p>
+
+      <div class="gift-wrap reveal-up">
+        <button class="gift-box" id="gift-box" aria-label="Open your secret gift">
+          <span class="gift-sparkles" id="gift-sparkles" aria-hidden="true"></span>
+          <span class="gift-lid">
+            <span class="gift-bow"><i class="fa-solid fa-heart"></i></span>
+          </span>
+          <span class="gift-base"></span>
+          <span class="gift-glow" aria-hidden="true"></span>
+        </button>
+
+        <div class="gift-message glass" id="gift-message">
+          <p>"No matter where life takes us, you'll always be one of the most important people in my life.</p>
+          <p class="gift-signoff">Happy Friendship Day ❤️"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>Made with <i class="fa-solid fa-heart footer-heart"></i> especially for my best friend.</p>
+    <p class="footer-sub">Happy Friendship Day, today and every day.</p>
+  </div>
+</footer>
+
+<!-- ============ FLOATING CONTROLS ============ -->
+<button id="back-to-top" class="icon-btn glass fab" aria-label="Back to top" hidden>
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ============ CELEBRATION LAYER ============ -->
+<canvas id="celebration-canvas" aria-hidden="true"></canvas>
+<div id="floating-emoji-layer" aria-hidden="true"></div>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
